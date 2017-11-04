@@ -49,9 +49,6 @@ def process_chat(file_path, device_type):
 
     user_messages_rdd = text_rdd.map(create_user_tuple)
 
-    # count_by_key = sorted(user_messages_rdd.countByKey().items(), cmp=lambda a,b: cmp(b[1], a[1]))
-    # for i in count_by_key: print i
-
     return user_messages_rdd.groupByKey().mapValues(list).collect()
 
 
@@ -62,10 +59,15 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # list of UserData
-    users = process_chat(args.file, args.device)
+    # list of [(user_name, [(timestamp, msg), (timestamp, msg), ...],
+    #           (user_name, [(timestamp, msg), (timestamp, msg), ...]]
+    users_messages = process_chat(args.file, args.device)
+
+    users = [UserData(name, messages) for name, messages in users_messages]
 
     print users[0]
+
+
 
     # for item in users:
     #     wc = wordcloud.WordCloud(width=500, height=500).generate(item[1])
