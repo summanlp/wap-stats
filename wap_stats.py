@@ -5,6 +5,8 @@ import re
 from datetime import datetime
 from Log import ChatLog
 from text_cleanner import to_unicode
+from pagerank_weighted import pagerank_weighted_scipy as pagerank
+from export import gexf_export_from_graph
 
 ANDROID = "android"
 IOS = "ios"
@@ -56,17 +58,7 @@ def process_chat(file_path, device_type):
     return ChatLog(file_path, text_rdd.map(lambda t: create_user_tuple(t, device_type)))
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Analyze WhatsApp Chats')
-    parser.add_argument('-f', '--file', help='Chat log file name', required=True)
-    parser.add_argument('-d', '--device', help='Device where the chat was taken:', choices=[ANDROID,IOS], required=True)
-
-    args = parser.parse_args()
-
-    chat_log = process_chat(args.file, args.device)
-
-    users_data = chat_log.get_users_data()
-
+def word_reporting(chat_log, users_data):
     print "Total palabras: " + str(chat_log.count_words())
 
     uwc = [(user.name, user.count_messages(), user.count_words(), user.count_words(clean=True)) for user in users_data]
@@ -85,6 +77,29 @@ if __name__ == "__main__":
         f.write(s)
 
     f.close()
+
+
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Analyze WhatsApp Chats')
+    parser.add_argument('-f', '--file', help='Chat log file name', required=True)
+    parser.add_argument('-d', '--device', help='Device where the chat was taken:', choices=[ANDROID,IOS], required=True)
+
+    args = parser.parse_args()
+
+    chat_log = process_chat(args.file, args.device)
+
+    # users_data = chat_log.get_users_data()
+
+    graph = chat_log.get_response_graph()
+
+    gexf_export_from_graph(graph, path="views/test.gexf")
+
+    print pagerank(graph)
+
+
+
 
 
 

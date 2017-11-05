@@ -3,6 +3,7 @@ import wordcloud
 from abc import ABCMeta, abstractmethod
 from operator import add
 from text_cleanner import clean_text
+from graph import Graph
 
 LANGUAGE = "spanish"
 
@@ -44,6 +45,7 @@ class Log:
         return self.get_messages().map(lambda t: len(t[1].split())).reduce(add)
 
 
+
 class ChatLog(Log):
     """
     name: name of the conversation
@@ -53,9 +55,8 @@ class ChatLog(Log):
         ]
     """
     def get_users_data(self):
-        user_names = self.messages.keys().distinct().collect()
         user_datas = []
-        for user in user_names:
+        for user in self.get_users_names():
             user_log = self.messages.filter(lambda t: t[0] == user).map(lambda t: t[1])
             user_log.persist()
             user_datas.append(UserLog(user, user_log))
@@ -70,6 +71,39 @@ class ChatLog(Log):
 
     def get_messages(self):
         return self.messages.map(lambda t: t[1])
+
+    def get_users_names(self):
+        return self.messages.keys().distinct().collect()
+
+    def get_response_graph(self):
+        graph = build_graph(self.get_users_names())
+
+        last_speaker = self.messages.take(1)[0][0]
+
+        increment = 1
+
+        for message in self.messages.toLocalIterator():
+            current_speaker = message[0]
+            if current_speaker == last_speaker: continue
+
+            edge = last_speaker, current_speaker
+            if graph.has_edge(edge):
+                weight = graph.get_edge_properties(edge)[graph.WEIGHT_ATTRIBUTE_NAME]
+                graph.set_edge_properties(edge, weight=weight+increment)
+            else:
+                graph.add_edge(edge, wt=increment)
+
+            last_speaker = current_speaker
+
+        return graph
+
+
+def build_graph(users):
+    graph = Graph()
+    for user in users:
+        graph.add_node(user)
+    return graph
+
 
 
 class UserLog(Log):
