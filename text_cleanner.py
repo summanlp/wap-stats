@@ -51,7 +51,7 @@ def deaccent(text):
     return unicodedata.normalize("NFC", result)
 
 
-def clean_string(s, language):
+def clean_text(s, language):
     functions = [lambda w: w.lower(), deaccent, strip_punctuation, strip_numeric]
     for f in functions: s = f(s)
     return remove_stopwords(s, language)
