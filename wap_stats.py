@@ -79,6 +79,9 @@ def word_reporting(chat_log, users_data):
     f.close()
 
 
+def graph_export(chat_log):
+    graph = chat_log.get_response_graph()
+    gexf_export_from_graph(graph, path="views/test.gexf")
 
 
 if __name__ == "__main__":
@@ -90,13 +93,15 @@ if __name__ == "__main__":
 
     chat_log = process_chat(args.file, args.device)
 
-    # users_data = chat_log.get_users_data()
+    wc = chat_log.get_word_count(words_amount=25)
 
-    graph = chat_log.get_response_graph()
+    swc = sorted([(k,v) for k,v in wc.iteritems()], cmp=lambda a,b: cmp(b[1], a[1]))
 
-    gexf_export_from_graph(graph, path="views/test.gexf")
+    for k,v in swc:
+        print "{} - {}".format(v,k.encode("utf-8"))
 
-    print pagerank(graph)
+
+
 
 
 

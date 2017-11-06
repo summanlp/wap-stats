@@ -28,6 +28,7 @@ class Log:
 
     @abstractmethod
     def to_string(self):
+        """:returns: all the messages together as one string"""
         return ""
 
     @abstractmethod
@@ -44,7 +45,16 @@ class Log:
             return self.get_messages().map(lambda t: len(clean_text(t[1], LANGUAGE).split())).reduce(add)
         return self.get_messages().map(lambda t: len(t[1].split())).reduce(add)
 
-
+    def get_word_count(self, words_amount=200, clean=True):
+        """:returns: dict with word count of the most words_amount words"""
+        split_function = lambda x: clean_text(x[1], LANGUAGE).split() if clean else lambda x: x[1].split()
+        return self.get_messages().flatMap(split_function) \
+                                    .map(lambda word: (word, 1)) \
+                                    .reduceByKey(add) \
+                                    .sortBy(lambda x: x[1],ascending=False) \
+                                    .zipWithIndex().filter(lambda t: t[1] < words_amount) \
+                                    .map(lambda x: (x[0][0],x[0][1])) \
+                                    .collectAsMap()
 
 class ChatLog(Log):
     """
