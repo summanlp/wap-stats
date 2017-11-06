@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     chat_log = process_chat(args.file, args.device)
 
-    wc = chat_log.get_word_count(words_amount=25)
+    wc = chat_log.get_word_count(words_amount=100)
 
     swc = sorted([(k,v) for k,v in wc.iteritems()], cmp=lambda a,b: cmp(b[1], a[1]))
 
