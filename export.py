@@ -5,10 +5,12 @@ from os import system as _shell
 from pagerank_weighted import pagerank_weighted_scipy as _pagerank_weighted_scipy
 
 NODE_COLOR = {'r': 239, 'g': 10, 'b': 10}
+MAX_EDGE_WIDTH = 4
+MIN_EDGE_WIDTH = 0.1
 
 
 def _write_gexf(graph, scores, path="test.gexf", labels=None):
-    nx_graph = _get_nx_graph(graph)
+    nx_graph = _get_nx_graph(graph, scores)
     _set_layout(nx_graph, scores, labels)
     _nx.write_gexf(nx_graph, path)
     _shell("sed -i 's/<ns0/<viz/g' {0}".format(path))
@@ -16,11 +18,25 @@ def _write_gexf(graph, scores, path="test.gexf", labels=None):
     #_shell("mv {0} views/{0}".format(path))
 
 
-def _get_nx_graph(graph):
+def transform_edge_scores(graph):
+    """Transform the max score to MAX_EDGE_WIDTH, the min score to MIN_EDGE_WIDTH and all the values in between
+    linearly, ignoring zeros"""
+    edges = {edge: graph.edge_weight(edge) for edge in graph.edges() if graph.edge_weight(edge) != 0}
+
+    max_score = max(edges.iteritems(), key=(lambda k: edges[k[0]]))[1]
+    min_score = min(edges.iteritems(), key=(lambda k: edges[k[0]]))[1]
+    old_range = max_score - min_score
+    new_range = MAX_EDGE_WIDTH - MIN_EDGE_WIDTH
+    map_value = lambda x: (((x - min_score) * new_range) / float(old_range)) + MIN_EDGE_WIDTH
+    return {k: map_value(v) for k, v in edges.iteritems()}
+
+
+def _get_nx_graph(graph, new_scores):
     nx_graph = _nx.Graph()
     nx_graph.add_nodes_from(graph.nodes())
-    for edge in graph.edges():
-        weight = graph.edge_weight(edge)
+    transformed_edges = transform_edge_scores(graph)
+    for edge in transformed_edges:
+        weight = transformed_edges[edge]
         if weight != 0:
             nx_graph.add_edge(edge[0], edge[1], {'weight': weight})
     return nx_graph

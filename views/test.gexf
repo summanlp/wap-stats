@@ -2,280 +2,298 @@
 <gexf xmlns:ns0="http://www.gexf.net/1.1draft/viz" version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
   <graph defaultedgetype="undirected" mode="static">
     <nodes>
-      <node id="Fede Barrios" label="Fede Barrios">
+      <node id="Federico Piechotka" label="Federico Piechotka">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.0613134334221" />
-        <viz:position x="-15.41" y="-60.82" z="None" />
+        <viz:size value="0.267201422238" />
+        <viz:position x="-50.7" y="-15.68" z="None" />
       </node>
-      <node id="Lean Rodriguez" label="Lean Rodriguez">
+      <node id="Diego Ramiro Montoya" label="Diego Ramiro">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.327471896875" />
-        <viz:position x="13.58" y="4.74" z="None" />
+        <viz:size value="0.141035762752" />
+        <viz:position x="35.45" y="6.4" z="None" />
       </node>
-      <node id="Fede" label="Fede">
+      <node id="Leandro Rodriguez" label="Leandro Rodriguez">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.148273883438" />
-        <viz:position x="40.2" y="-17.56" z="None" />
+        <viz:size value="0.362525054767" />
+        <viz:position x="-11.38" y="-52.78" z="None" />
       </node>
-      <node id="Fpiecho" label="Fpiecho">
+      <node id="Federico Barrios" label="Federico Barrios">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.244394339187" />
-        <viz:position x="3.53" y="40.42" z="None" />
+        <viz:size value="0.048575669082" />
+        <viz:position x="-9.58" y="52.77" z="None" />
       </node>
-      <node id="‪+54 9 11 6290-9268‬" label="‪+54 9">
+      <node id="Miguel Torres" label="Miguel Torres">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.03269910781" />
-        <viz:position x="-30.63" y="61.34" z="None" />
+        <viz:size value="0.0317993054236" />
+        <viz:position x="16.6" y="25.08" z="None" />
       </node>
-      <node id="Ale Marra" label="Ale Marra">
+      <node id="Javier Choque" label="Javier Choque">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.296066625699" />
-        <viz:position x="-14.86" y="27.64" z="None" />
+        <viz:size value="0.0367675796678" />
+        <viz:position x="-13.42" y="4.07" z="None" />
       </node>
-      <node id="Seba Bogado" label="Seba Bogado">
+      <node id="Florencia Bosch" label="Florencia Bosch">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.140064707365" />
-        <viz:position x="-39.84" y="1.99" z="None" />
+        <viz:size value="0.0654069987473" />
+        <viz:position x="-37.55" y="-39.41" z="None" />
       </node>
-      <node id="‪+1 (917) 941-5742‬" label="‪+1 (917)">
+      <node id="Federico Lopez" label="Federico Lopez">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.103084792371" />
-        <viz:position x="-40.84" y="-22.29" z="None" />
+        <viz:size value="0.101219090894" />
+        <viz:position x="47.34" y="-17.01" z="None" />
+      </node>
+      <node id="Alejandro Marra" label="Alejandro Marra">
+        <viz:color b="10" g="10" r="239" />
+        <viz:size value="0.268355887165" />
+        <viz:position x="-27.42" y="-20.66" z="None" />
+      </node>
+      <node id="Ignacio Garay" label="Ignacio Garay">
+        <viz:color b="10" g="10" r="239" />
+        <viz:size value="0.226169018273" />
+        <viz:position x="16.81" y="-47.89" z="None" />
+      </node>
+      <node id="Sebastian Bogado" label="Sebastian Bogado">
+        <viz:color b="10" g="10" r="239" />
+        <viz:size value="0.150800414656" />
+        <viz:position x="-3.79" y="-34.73" z="None" />
+      </node>
+      <node id="Tomás Reale" label="Tomás Reale">
+        <viz:color b="10" g="10" r="239" />
+        <viz:size value="0.543882115219" />
+        <viz:position x="-52.0" y="4.89" z="None" />
+      </node>
+      <node id="Ezequiel Pérez Dittler" label="Ezequiel Pérez">
+        <viz:color b="10" g="10" r="239" />
+        <viz:size value="0.192622000766" />
+        <viz:position x="52.0" y="12.15" z="None" />
       </node>
       <node id="Marco Lotto" label="Marco Lotto">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.0276671469811" />
-        <viz:position x="-65.92" y="13.77" z="None" />
+        <viz:size value="0.0289549975836" />
+        <viz:position x="36.22" y="38.14" z="None" />
       </node>
-      <node id="Tom Reale" label="Tom Reale">
+      <node id="Sebastián Piccoli" label="Sebastián Piccoli">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.532478830173" />
-        <viz:position x="65.92" y="-14.61" z="None" />
-      </node>
-      <node id="Flor Bosch" label="Flor Bosch">
-        <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.0792654352868" />
-        <viz:position x="5.4" y="-61.34" z="None" />
-      </node>
-      <node id="Seba Piccoli" label="Seba Piccoli">
-        <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.0408082715828" />
-        <viz:position x="26.11" y="-47.63" z="None" />
-      </node>
-      <node id="Diego Montoya" label="Diego Montoya">
-        <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.184173485431" />
-        <viz:position x="-18.87" y="-30.03" z="None" />
-      </node>
-      <node id="Fer Pereira" label="Fer Pereira">
-        <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.292611678386" />
-        <viz:position x="-13.67" y="2.7" z="None" />
-      </node>
-      <node id="Nacho Garay" label="Nacho Garay">
-        <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.191264031649" />
-        <viz:position x="31.43" y="21.34" z="None" />
-      </node>
-      <node id="Phenom" label="Phenom">
-        <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.0813745452522" />
-        <viz:position x="60.94" y="3.24" z="None" />
+        <viz:size value="0.0398989761931" />
+        <viz:position x="13.68" y="50.28" z="None" />
       </node>
       <node id="Lucas Awad" label="Lucas Awad">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.0295510162585" />
-        <viz:position x="65.82" y="37.2" z="None" />
+        <viz:size value="0.0341699956838" />
+        <viz:position x="16.43" y="-14.03" z="None" />
       </node>
-      <node id="Pampa" label="Pampa">
+      <node id="Pablo Angelani" label="Pablo Angelani">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.158925338735" />
-        <viz:position x="23.48" y="41.25" z="None" />
+        <viz:size value="0.105461143742" />
+        <viz:position x="35.33" y="-36.0" z="None" />
       </node>
-      <node id="Pablon Musumeci" label="Pablon Musumeci">
+      <node id="Fernando Pereira" label="Fernando Pereira">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.448452548607" />
-        <viz:position x="5.62" y="-23.55" z="None" />
+        <viz:size value="0.378234655457" />
+        <viz:position x="-34.67" y="41.95" z="None" />
       </node>
-      <node id="Agus Origone" label="Agus Origone">
+      <node id="Pablon" label="Pablon">
         <viz:color b="10" g="10" r="239" />
-        <viz:size value="0.0780184553702" />
-        <viz:position x="51.98" y="-46.22" z="None" />
+        <viz:size value="0.33289513684" />
+        <viz:position x="-45.79" y="23.2" z="None" />
+      </node>
+      <node id="Agustin Origone" label="Agustin Origone">
+        <viz:color b="10" g="10" r="239" />
+        <viz:size value="0.103064160517" />
+        <viz:position x="-14.6" y="30.52" z="None" />
       </node>
     </nodes>
     <edges>
-      <edge id="0" source="Fede Barrios" target="Fede" weight="0.27" />
-      <edge id="1" source="Fede Barrios" target="Fpiecho" weight="0.43" />
-      <edge id="2" source="Fede Barrios" target="Ale Marra" weight="0.41" />
-      <edge id="3" source="Fede Barrios" target="Seba Bogado" weight="0.21" />
-      <edge id="4" source="Fede Barrios" target="Diego Montoya" weight="0.23" />
-      <edge id="5" source="Fede Barrios" target="Lean Rodriguez" weight="0.67" />
-      <edge id="6" source="Fede Barrios" target="Tom Reale" weight="1.05" />
-      <edge id="7" source="Fede Barrios" target="Flor Bosch" weight="0.07" />
-      <edge id="8" source="Fede Barrios" target="Seba Piccoli" weight="0.01" />
-      <edge id="9" source="Fede Barrios" target="Fer Pereira" weight="0.69" />
-      <edge id="10" source="Fede Barrios" target="Nacho Garay" weight="0.09" />
-      <edge id="11" source="Fede Barrios" target="Phenom" weight="0.1" />
-      <edge id="12" source="Fede Barrios" target="‪+1 (917) 941-5742‬" weight="0.15" />
-      <edge id="13" source="Fede Barrios" target="Pampa" weight="0.19" />
-      <edge id="14" source="Fede Barrios" target="Pablon Musumeci" weight="0.83" />
-      <edge id="15" source="Fede Barrios" target="Agus Origone" weight="0.14" />
-      <edge id="16" source="Lean Rodriguez" target="Fede" weight="2.18" />
-      <edge id="17" source="Lean Rodriguez" target="Fpiecho" weight="3.26" />
-      <edge id="18" source="Lean Rodriguez" target="‪+54 9 11 6290-9268‬" weight="0.01" />
-      <edge id="19" source="Lean Rodriguez" target="Ale Marra" weight="5.6" />
-      <edge id="20" source="Lean Rodriguez" target="Seba Bogado" weight="1.54" />
-      <edge id="21" source="Lean Rodriguez" target="Diego Montoya" weight="2.63" />
-      <edge id="22" source="Lean Rodriguez" target="Marco Lotto" weight="0.02" />
-      <edge id="23" source="Lean Rodriguez" target="Tom Reale" weight="9.44" />
-      <edge id="24" source="Lean Rodriguez" target="Flor Bosch" weight="0.81" />
-      <edge id="25" source="Lean Rodriguez" target="Seba Piccoli" weight="0.13" />
-      <edge id="26" source="Lean Rodriguez" target="Fer Pereira" weight="5.26" />
-      <edge id="27" source="Lean Rodriguez" target="Nacho Garay" weight="2.16" />
-      <edge id="28" source="Lean Rodriguez" target="Phenom" weight="1.28" />
-      <edge id="29" source="Lean Rodriguez" target="‪+1 (917) 941-5742‬" weight="1.55" />
-      <edge id="30" source="Lean Rodriguez" target="Lucas Awad" weight="0.02" />
-      <edge id="31" source="Lean Rodriguez" target="Pampa" weight="1.85" />
-      <edge id="32" source="Lean Rodriguez" target="Pablon Musumeci" weight="6.55" />
-      <edge id="33" source="Lean Rodriguez" target="Agus Origone" weight="1.11" />
-      <edge id="34" source="Fede" target="Fpiecho" weight="1.36" />
-      <edge id="35" source="Fede" target="‪+54 9 11 6290-9268‬" weight="0.03" />
-      <edge id="36" source="Fede" target="Ale Marra" weight="1.12" />
-      <edge id="37" source="Fede" target="Seba Bogado" weight="0.47" />
-      <edge id="38" source="Fede" target="‪+1 (917) 941-5742‬" weight="0.27" />
-      <edge id="39" source="Fede" target="Phenom" weight="0.2" />
-      <edge id="40" source="Fede" target="Tom Reale" weight="4.47" />
-      <edge id="41" source="Fede" target="Flor Bosch" weight="0.25" />
-      <edge id="42" source="Fede" target="Seba Piccoli" weight="0.24" />
-      <edge id="43" source="Fede" target="Diego Montoya" weight="0.78" />
-      <edge id="44" source="Fede" target="Nacho Garay" weight="1.61" />
-      <edge id="45" source="Fede" target="Fer Pereira" weight="1.38" />
-      <edge id="46" source="Fede" target="Lucas Awad" weight="0.01" />
-      <edge id="47" source="Fede" target="Pampa" weight="0.49" />
-      <edge id="48" source="Fede" target="Pablon Musumeci" weight="3.54" />
-      <edge id="49" source="Fede" target="Agus Origone" weight="0.19" />
-      <edge id="50" source="Fpiecho" target="Seba Piccoli" weight="0.11" />
-      <edge id="51" source="Fpiecho" target="‪+54 9 11 6290-9268‬" weight="0.02" />
-      <edge id="52" source="Fpiecho" target="Ale Marra" weight="3.29" />
-      <edge id="53" source="Fpiecho" target="Seba Bogado" weight="1.08" />
-      <edge id="54" source="Fpiecho" target="Diego Montoya" weight="1.75" />
-      <edge id="55" source="Fpiecho" target="Marco Lotto" weight="0.01" />
-      <edge id="56" source="Fpiecho" target="Tom Reale" weight="7.54" />
-      <edge id="57" source="Fpiecho" target="Flor Bosch" weight="0.49" />
-      <edge id="58" source="Fpiecho" target="Agus Origone" weight="0.74" />
-      <edge id="59" source="Fpiecho" target="Phenom" weight="0.49" />
-      <edge id="60" source="Fpiecho" target="Fer Pereira" weight="3.19" />
-      <edge id="61" source="Fpiecho" target="Nacho Garay" weight="1.59" />
-      <edge id="62" source="Fpiecho" target="Lucas Awad" weight="0.03" />
-      <edge id="63" source="Fpiecho" target="Pampa" weight="1.3" />
-      <edge id="64" source="Fpiecho" target="Pablon Musumeci" weight="5.41" />
-      <edge id="65" source="Fpiecho" target="‪+1 (917) 941-5742‬" weight="1.48" />
-      <edge id="66" source="‪+54 9 11 6290-9268‬" target="Ale Marra" weight="0.03" />
-      <edge id="67" source="‪+54 9 11 6290-9268‬" target="Seba Bogado" weight="0.02" />
-      <edge id="68" source="‪+54 9 11 6290-9268‬" target="‪+1 (917) 941-5742‬" weight="0.04" />
-      <edge id="69" source="‪+54 9 11 6290-9268‬" target="Marco Lotto" weight="0.01" />
-      <edge id="70" source="‪+54 9 11 6290-9268‬" target="Tom Reale" weight="0.22" />
-      <edge id="71" source="‪+54 9 11 6290-9268‬" target="Fer Pereira" weight="0.08" />
-      <edge id="72" source="‪+54 9 11 6290-9268‬" target="Nacho Garay" weight="0.07" />
-      <edge id="73" source="‪+54 9 11 6290-9268‬" target="Pampa" weight="0.1" />
-      <edge id="74" source="‪+54 9 11 6290-9268‬" target="Pablon Musumeci" weight="0.11" />
-      <edge id="75" source="‪+54 9 11 6290-9268‬" target="Diego Montoya" weight="0.06" />
-      <edge id="76" source="Ale Marra" target="Seba Bogado" weight="1.69" />
-      <edge id="77" source="Ale Marra" target="Diego Montoya" weight="2.08" />
-      <edge id="78" source="Ale Marra" target="Tom Reale" weight="8.57" />
-      <edge id="79" source="Ale Marra" target="Flor Bosch" weight="0.95" />
-      <edge id="80" source="Ale Marra" target="Phenom" weight="1.21" />
-      <edge id="81" source="Ale Marra" target="Seba Piccoli" weight="0.23" />
-      <edge id="82" source="Ale Marra" target="Fer Pereira" weight="3.18" />
-      <edge id="83" source="Ale Marra" target="Nacho Garay" weight="1.63" />
-      <edge id="84" source="Ale Marra" target="Marco Lotto" weight="0.01" />
-      <edge id="85" source="Ale Marra" target="‪+1 (917) 941-5742‬" weight="1.99" />
-      <edge id="86" source="Ale Marra" target="Lucas Awad" weight="0.05" />
-      <edge id="87" source="Ale Marra" target="Pampa" weight="1.47" />
-      <edge id="88" source="Ale Marra" target="Pablon Musumeci" weight="6.9" />
-      <edge id="89" source="Ale Marra" target="Agus Origone" weight="0.69" />
-      <edge id="90" source="Seba Bogado" target="‪+1 (917) 941-5742‬" weight="0.74" />
-      <edge id="91" source="Seba Bogado" target="Tom Reale" weight="3.59" />
-      <edge id="92" source="Seba Bogado" target="Flor Bosch" weight="0.14" />
-      <edge id="93" source="Seba Bogado" target="Seba Piccoli" weight="0.04" />
-      <edge id="94" source="Seba Bogado" target="Diego Montoya" weight="1.22" />
-      <edge id="95" source="Seba Bogado" target="Nacho Garay" weight="1.33" />
-      <edge id="96" source="Seba Bogado" target="Phenom" weight="0.36" />
-      <edge id="97" source="Seba Bogado" target="Fer Pereira" weight="1.65" />
-      <edge id="98" source="Seba Bogado" target="Pampa" weight="0.9" />
-      <edge id="99" source="Seba Bogado" target="Pablon Musumeci" weight="2.6" />
-      <edge id="100" source="Seba Bogado" target="Agus Origone" weight="0.2" />
-      <edge id="101" source="‪+1 (917) 941-5742‬" target="Diego Montoya" weight="0.82" />
-      <edge id="102" source="‪+1 (917) 941-5742‬" target="Flor Bosch" weight="0.11" />
-      <edge id="103" source="‪+1 (917) 941-5742‬" target="Seba Piccoli" weight="0.04" />
-      <edge id="104" source="‪+1 (917) 941-5742‬" target="Fer Pereira" weight="1.41" />
-      <edge id="105" source="‪+1 (917) 941-5742‬" target="Nacho Garay" weight="0.85" />
-      <edge id="106" source="‪+1 (917) 941-5742‬" target="Phenom" weight="0.15" />
-      <edge id="107" source="‪+1 (917) 941-5742‬" target="Lucas Awad" weight="0.01" />
-      <edge id="108" source="‪+1 (917) 941-5742‬" target="Pampa" weight="0.7" />
-      <edge id="109" source="‪+1 (917) 941-5742‬" target="Pablon Musumeci" weight="1.27" />
-      <edge id="110" source="‪+1 (917) 941-5742‬" target="Agus Origone" weight="0.14" />
-      <edge id="111" source="Marco Lotto" target="Diego Montoya" weight="0.01" />
-      <edge id="112" source="Marco Lotto" target="Flor Bosch" weight="0.01" />
-      <edge id="113" source="Marco Lotto" target="Seba Piccoli" weight="0.01" />
-      <edge id="114" source="Marco Lotto" target="Fer Pereira" weight="0.01" />
-      <edge id="115" source="Marco Lotto" target="Nacho Garay" weight="0.01" />
-      <edge id="116" source="Marco Lotto" target="Pampa" weight="0.03" />
-      <edge id="117" source="Marco Lotto" target="Pablon Musumeci" weight="0.03" />
-      <edge id="118" source="Tom Reale" target="Diego Montoya" weight="3.99" />
-      <edge id="119" source="Tom Reale" target="Phenom" weight="1.39" />
-      <edge id="120" source="Tom Reale" target="Flor Bosch" weight="1.28" />
-      <edge id="121" source="Tom Reale" target="Seba Piccoli" weight="0.16" />
-      <edge id="122" source="Tom Reale" target="Fer Pereira" weight="7.97" />
-      <edge id="123" source="Tom Reale" target="Nacho Garay" weight="5.68" />
-      <edge id="124" source="Tom Reale" target="Lucas Awad" weight="0.08" />
-      <edge id="125" source="Tom Reale" target="Pampa" weight="3.73" />
-      <edge id="126" source="Tom Reale" target="Pablon Musumeci" weight="16.32" />
-      <edge id="127" source="Tom Reale" target="Agus Origone" weight="1.7" />
-      <edge id="128" source="Flor Bosch" target="Diego Montoya" weight="0.36" />
-      <edge id="129" source="Flor Bosch" target="Seba Piccoli" weight="0.05" />
-      <edge id="130" source="Flor Bosch" target="Fer Pereira" weight="1.17" />
-      <edge id="131" source="Flor Bosch" target="Nacho Garay" weight="0.69" />
-      <edge id="132" source="Flor Bosch" target="Phenom" weight="0.15" />
-      <edge id="133" source="Flor Bosch" target="Pampa" weight="0.3" />
-      <edge id="134" source="Flor Bosch" target="Pablon Musumeci" weight="1.25" />
-      <edge id="135" source="Flor Bosch" target="Agus Origone" weight="0.06" />
-      <edge id="136" source="Seba Piccoli" target="Phenom" weight="0.05" />
-      <edge id="137" source="Seba Piccoli" target="Diego Montoya" weight="0.13" />
-      <edge id="138" source="Seba Piccoli" target="Nacho Garay" weight="0.08" />
-      <edge id="139" source="Seba Piccoli" target="Fer Pereira" weight="0.17" />
-      <edge id="140" source="Seba Piccoli" target="Lucas Awad" weight="0.01" />
-      <edge id="141" source="Seba Piccoli" target="Pampa" weight="0.1" />
-      <edge id="142" source="Seba Piccoli" target="Pablon Musumeci" weight="0.39" />
-      <edge id="143" source="Seba Piccoli" target="Agus Origone" weight="0.03" />
-      <edge id="144" source="Diego Montoya" target="Phenom" weight="0.53" />
-      <edge id="145" source="Diego Montoya" target="Fer Pereira" weight="2.56" />
-      <edge id="146" source="Diego Montoya" target="Nacho Garay" weight="1.4" />
-      <edge id="147" source="Diego Montoya" target="Lucas Awad" weight="0.03" />
-      <edge id="148" source="Diego Montoya" target="Pampa" weight="1.3" />
-      <edge id="149" source="Diego Montoya" target="Pablon Musumeci" weight="3.62" />
-      <edge id="150" source="Diego Montoya" target="Agus Origone" weight="0.38" />
-      <edge id="151" source="Fer Pereira" target="Pablon Musumeci" weight="5.33" />
-      <edge id="152" source="Fer Pereira" target="Nacho Garay" weight="2.28" />
-      <edge id="153" source="Fer Pereira" target="Phenom" weight="1.22" />
-      <edge id="154" source="Fer Pereira" target="Lucas Awad" weight="0.03" />
-      <edge id="155" source="Fer Pereira" target="Pampa" weight="2.02" />
-      <edge id="156" source="Fer Pereira" target="Agus Origone" weight="0.66" />
-      <edge id="157" source="Nacho Garay" target="Phenom" weight="0.25" />
-      <edge id="158" source="Nacho Garay" target="Lucas Awad" weight="0.02" />
-      <edge id="159" source="Nacho Garay" target="Pampa" weight="1.0" />
-      <edge id="160" source="Nacho Garay" target="Pablon Musumeci" weight="4.12" />
-      <edge id="161" source="Nacho Garay" target="Agus Origone" weight="0.36" />
-      <edge id="162" source="Phenom" target="Agus Origone" weight="0.1" />
-      <edge id="163" source="Phenom" target="Lucas Awad" weight="0.02" />
-      <edge id="164" source="Phenom" target="Pampa" weight="0.2" />
-      <edge id="165" source="Phenom" target="Pablon Musumeci" weight="0.84" />
-      <edge id="166" source="Lucas Awad" target="Pampa" weight="0.08" />
-      <edge id="167" source="Lucas Awad" target="Pablon Musumeci" weight="0.1" />
-      <edge id="168" source="Lucas Awad" target="Agus Origone" weight="0.01" />
-      <edge id="169" source="Pampa" target="Agus Origone" weight="0.32" />
-      <edge id="170" source="Pampa" target="Pablon Musumeci" weight="3.08" />
-      <edge id="171" source="Pablon Musumeci" target="Agus Origone" weight="1.31" />
+      <edge id="0" source="Federico Piechotka" target="Tomás Reale" weight="2.98774250441" />
+      <edge id="1" source="Federico Piechotka" target="Marco Lotto" weight="0.112037037037" />
+      <edge id="2" source="Federico Piechotka" target="Lucas Awad" weight="0.129232804233" />
+      <edge id="3" source="Federico Piechotka" target="Federico Barrios" weight="0.200881834215" />
+      <edge id="4" source="Federico Piechotka" target="Florencia Bosch" weight="0.266225749559" />
+      <edge id="5" source="Federico Piechotka" target="Javier Choque" weight="0.142989417989" />
+      <edge id="6" source="Federico Piechotka" target="Federico Lopez" weight="0.363668430335" />
+      <edge id="7" source="Federico Piechotka" target="Alejandro Marra" weight="1.1741622575" />
+      <edge id="8" source="Federico Piechotka" target="Ignacio Garay" weight="0.95348324515" />
+      <edge id="9" source="Federico Piechotka" target="Sebastian Bogado" weight="0.551102292769" />
+      <edge id="10" source="Federico Piechotka" target="Leandro Rodriguez" weight="1.77544091711" />
+      <edge id="11" source="Federico Piechotka" target="Ezequiel Pérez Dittler" weight="0.864065255732" />
+      <edge id="12" source="Federico Piechotka" target="Diego Ramiro Montoya" weight="0.600970017637" />
+      <edge id="13" source="Federico Piechotka" target="Sebastián Piccoli" weight="0.1819664903" />
+      <edge id="14" source="Federico Piechotka" target="Miguel Torres" weight="0.118915343915" />
+      <edge id="15" source="Federico Piechotka" target="Pablo Angelani" weight="0.330996472663" />
+      <edge id="16" source="Federico Piechotka" target="Fernando Pereira" weight="1.94453262787" />
+      <edge id="17" source="Federico Piechotka" target="Pablon" weight="1.88950617284" />
+      <edge id="18" source="Federico Piechotka" target="Agustin Origone" weight="0.634788359788" />
+      <edge id="19" source="Diego Ramiro Montoya" target="Federico Barrios" weight="0.124647266314" />
+      <edge id="20" source="Diego Ramiro Montoya" target="Tomás Reale" weight="1.29223985891" />
+      <edge id="21" source="Diego Ramiro Montoya" target="Javier Choque" weight="0.127513227513" />
+      <edge id="22" source="Diego Ramiro Montoya" target="Marco Lotto" weight="0.109744268078" />
+      <edge id="23" source="Diego Ramiro Montoya" target="Federico Lopez" weight="0.254761904762" />
+      <edge id="24" source="Diego Ramiro Montoya" target="Florencia Bosch" weight="0.169929453263" />
+      <edge id="25" source="Diego Ramiro Montoya" target="Alejandro Marra" weight="0.598677248677" />
+      <edge id="26" source="Diego Ramiro Montoya" target="Ignacio Garay" weight="0.538492063492" />
+      <edge id="27" source="Diego Ramiro Montoya" target="Sebastian Bogado" weight="0.406084656085" />
+      <edge id="28" source="Diego Ramiro Montoya" target="Leandro Rodriguez" weight="0.901895943563" />
+      <edge id="29" source="Diego Ramiro Montoya" target="Ezequiel Pérez Dittler" weight="0.50582010582" />
+      <edge id="30" source="Diego Ramiro Montoya" target="Lucas Awad" weight="0.118915343915" />
+      <edge id="31" source="Diego Ramiro Montoya" target="Sebastián Piccoli" weight="0.149294532628" />
+      <edge id="32" source="Diego Ramiro Montoya" target="Miguel Torres" weight="0.112610229277" />
+      <edge id="33" source="Diego Ramiro Montoya" target="Pablo Angelani" weight="0.243298059965" />
+      <edge id="34" source="Diego Ramiro Montoya" target="Fernando Pereira" weight="0.887566137566" />
+      <edge id="35" source="Diego Ramiro Montoya" target="Pablon" weight="0.8319664903" />
+      <edge id="36" source="Diego Ramiro Montoya" target="Agustin Origone" weight="0.224382716049" />
+      <edge id="37" source="Leandro Rodriguez" target="Federico Barrios" weight="0.250749559083" />
+      <edge id="38" source="Leandro Rodriguez" target="Lucas Awad" weight="0.149867724868" />
+      <edge id="39" source="Leandro Rodriguez" target="Javier Choque" weight="0.175661375661" />
+      <edge id="40" source="Leandro Rodriguez" target="Florencia Bosch" weight="0.323544973545" />
+      <edge id="41" source="Leandro Rodriguez" target="Federico Lopez" weight="0.651984126984" />
+      <edge id="42" source="Leandro Rodriguez" target="Alejandro Marra" weight="1.96115520282" />
+      <edge id="43" source="Leandro Rodriguez" target="Ignacio Garay" weight="1.49572310406" />
+      <edge id="44" source="Leandro Rodriguez" target="Sebastian Bogado" weight="0.974118165785" />
+      <edge id="45" source="Leandro Rodriguez" target="Tomás Reale" weight="3.91172839506" />
+      <edge id="46" source="Leandro Rodriguez" target="Ezequiel Pérez Dittler" weight="1.14435626102" />
+      <edge id="47" source="Leandro Rodriguez" target="Marco Lotto" weight="0.118915343915" />
+      <edge id="48" source="Leandro Rodriguez" target="Sebastián Piccoli" weight="0.195149911817" />
+      <edge id="49" source="Leandro Rodriguez" target="Miguel Torres" weight="0.132671957672" />
+      <edge id="50" source="Leandro Rodriguez" target="Pablo Angelani" weight="0.690388007055" />
+      <edge id="51" source="Leandro Rodriguez" target="Fernando Pereira" weight="2.8725308642" />
+      <edge id="52" source="Leandro Rodriguez" target="Pablon" weight="1.90097001764" />
+      <edge id="53" source="Leandro Rodriguez" target="Agustin Origone" weight="0.664021164021" />
+      <edge id="54" source="Federico Barrios" target="Tomás Reale" weight="0.335582010582" />
+      <edge id="55" source="Federico Barrios" target="Miguel Torres" weight="0.10114638448" />
+      <edge id="56" source="Federico Barrios" target="Javier Choque" weight="0.102865961199" />
+      <edge id="57" source="Federico Barrios" target="Florencia Bosch" weight="0.124074074074" />
+      <edge id="58" source="Federico Barrios" target="Federico Lopez" weight="0.135537918871" />
+      <edge id="59" source="Federico Barrios" target="Alejandro Marra" weight="0.224382716049" />
+      <edge id="60" source="Federico Barrios" target="Ignacio Garay" weight="0.134964726631" />
+      <edge id="61" source="Federico Barrios" target="Sebastian Bogado" weight="0.164770723104" />
+      <edge id="62" source="Federico Barrios" target="Ezequiel Pérez Dittler" weight="0.167636684303" />
+      <edge id="63" source="Federico Barrios" target="Marco Lotto" weight="0.1" />
+      <edge id="64" source="Federico Barrios" target="Sebastián Piccoli" weight="0.105158730159" />
+      <edge id="65" source="Federico Barrios" target="Lucas Awad" weight="0.10057319224" />
+      <edge id="66" source="Federico Barrios" target="Pablo Angelani" weight="0.119488536155" />
+      <edge id="67" source="Federico Barrios" target="Fernando Pereira" weight="0.282275132275" />
+      <edge id="68" source="Federico Barrios" target="Pablon" weight="0.267372134039" />
+      <edge id="69" source="Federico Barrios" target="Agustin Origone" weight="0.120634920635" />
+      <edge id="70" source="Miguel Torres" target="Marco Lotto" weight="0.10114638448" />
+      <edge id="71" source="Miguel Torres" target="Sebastian Bogado" weight="0.119488536155" />
+      <edge id="72" source="Miguel Torres" target="Javier Choque" weight="0.103439153439" />
+      <edge id="73" source="Miguel Torres" target="Federico Lopez" weight="0.102865961199" />
+      <edge id="74" source="Miguel Torres" target="Alejandro Marra" weight="0.115476190476" />
+      <edge id="75" source="Miguel Torres" target="Ignacio Garay" weight="0.110890652557" />
+      <edge id="76" source="Miguel Torres" target="Pablon" weight="0.135537918871" />
+      <edge id="77" source="Miguel Torres" target="Ezequiel Pérez Dittler" weight="0.115476190476" />
+      <edge id="78" source="Miguel Torres" target="Florencia Bosch" weight="0.10171957672" />
+      <edge id="79" source="Miguel Torres" target="Sebastián Piccoli" weight="0.10057319224" />
+      <edge id="80" source="Miguel Torres" target="Lucas Awad" weight="0.102292768959" />
+      <edge id="81" source="Miguel Torres" target="Pablo Angelani" weight="0.102292768959" />
+      <edge id="82" source="Miguel Torres" target="Fernando Pereira" weight="0.154453262787" />
+      <edge id="83" source="Miguel Torres" target="Tomás Reale" weight="0.160185185185" />
+      <edge id="84" source="Miguel Torres" target="Agustin Origone" weight="0.104012345679" />
+      <edge id="85" source="Javier Choque" target="Lucas Awad" weight="0.10171957672" />
+      <edge id="86" source="Javier Choque" target="Florencia Bosch" weight="0.10171957672" />
+      <edge id="87" source="Javier Choque" target="Federico Lopez" weight="0.104012345679" />
+      <edge id="88" source="Javier Choque" target="Alejandro Marra" weight="0.123500881834" />
+      <edge id="89" source="Javier Choque" target="Pablon" weight="0.152733686067" />
+      <edge id="90" source="Javier Choque" target="Marco Lotto" weight="0.1" />
+      <edge id="91" source="Javier Choque" target="Ignacio Garay" weight="0.145855379189" />
+      <edge id="92" source="Javier Choque" target="Sebastian Bogado" weight="0.111463844797" />
+      <edge id="93" source="Javier Choque" target="Ezequiel Pérez Dittler" weight="0.14184303351" />
+      <edge id="94" source="Javier Choque" target="Sebastián Piccoli" weight="0.105158730159" />
+      <edge id="95" source="Javier Choque" target="Pablo Angelani" weight="0.105731922399" />
+      <edge id="96" source="Javier Choque" target="Fernando Pereira" weight="0.188271604938" />
+      <edge id="97" source="Javier Choque" target="Tomás Reale" weight="0.22151675485" />
+      <edge id="98" source="Javier Choque" target="Agustin Origone" weight="0.121208112875" />
+      <edge id="99" source="Florencia Bosch" target="Marco Lotto" weight="0.10171957672" />
+      <edge id="100" source="Florencia Bosch" target="Federico Lopez" weight="0.149294532628" />
+      <edge id="101" source="Florencia Bosch" target="Alejandro Marra" weight="0.389462081129" />
+      <edge id="102" source="Florencia Bosch" target="Agustin Origone" weight="0.115476190476" />
+      <edge id="103" source="Florencia Bosch" target="Ignacio Garay" weight="0.256481481481" />
+      <edge id="104" source="Florencia Bosch" target="Sebastian Bogado" weight="0.161904761905" />
+      <edge id="105" source="Florencia Bosch" target="Pablon" weight="0.38258377425" />
+      <edge id="106" source="Florencia Bosch" target="Ezequiel Pérez Dittler" weight="0.214638447972" />
+      <edge id="107" source="Florencia Bosch" target="Lucas Awad" weight="0.105731922399" />
+      <edge id="108" source="Florencia Bosch" target="Sebastián Piccoli" weight="0.105158730159" />
+      <edge id="109" source="Florencia Bosch" target="Pablo Angelani" weight="0.159038800705" />
+      <edge id="110" source="Florencia Bosch" target="Fernando Pereira" weight="0.42385361552" />
+      <edge id="111" source="Florencia Bosch" target="Tomás Reale" weight="0.450220458554" />
+      <edge id="112" source="Federico Lopez" target="Marco Lotto" weight="0.102292768959" />
+      <edge id="113" source="Federico Lopez" target="Tomás Reale" weight="1.00220458554" />
+      <edge id="114" source="Federico Lopez" target="Alejandro Marra" weight="0.396913580247" />
+      <edge id="115" source="Federico Lopez" target="Sebastian Bogado" weight="0.227248677249" />
+      <edge id="116" source="Federico Lopez" target="Lucas Awad" weight="0.104585537919" />
+      <edge id="117" source="Federico Lopez" target="Ezequiel Pérez Dittler" weight="0.325837742504" />
+      <edge id="118" source="Federico Lopez" target="Ignacio Garay" weight="0.508686067019" />
+      <edge id="119" source="Federico Lopez" target="Sebastián Piccoli" weight="0.134964726631" />
+      <edge id="120" source="Federico Lopez" target="Pablo Angelani" weight="0.153880070547" />
+      <edge id="121" source="Federico Lopez" target="Fernando Pereira" weight="0.495502645503" />
+      <edge id="122" source="Federico Lopez" target="Pablon" weight="0.716181657848" />
+      <edge id="123" source="Federico Lopez" target="Agustin Origone" weight="0.184259259259" />
+      <edge id="124" source="Alejandro Marra" target="Pablon" weight="1.83963844797" />
+      <edge id="125" source="Alejandro Marra" target="Ignacio Garay" weight="1.00621693122" />
+      <edge id="126" source="Alejandro Marra" target="Sebastian Bogado" weight="0.741975308642" />
+      <edge id="127" source="Alejandro Marra" target="Ezequiel Pérez Dittler" weight="0.733377425044" />
+      <edge id="128" source="Alejandro Marra" target="Marco Lotto" weight="0.105731922399" />
+      <edge id="129" source="Alejandro Marra" target="Sebastián Piccoli" weight="0.132671957672" />
+      <edge id="130" source="Alejandro Marra" target="Lucas Awad" weight="0.130952380952" />
+      <edge id="131" source="Alejandro Marra" target="Pablo Angelani" weight="0.653130511464" />
+      <edge id="132" source="Alejandro Marra" target="Fernando Pereira" weight="1.59201940035" />
+      <edge id="133" source="Alejandro Marra" target="Tomás Reale" weight="3.11212522046" />
+      <edge id="134" source="Alejandro Marra" target="Agustin Origone" weight="0.34246031746" />
+      <edge id="135" source="Ignacio Garay" target="Tomás Reale" weight="2.52231040564" />
+      <edge id="136" source="Ignacio Garay" target="Sebastian Bogado" weight="0.646825396825" />
+      <edge id="137" source="Ignacio Garay" target="Lucas Awad" weight="0.122354497354" />
+      <edge id="138" source="Ignacio Garay" target="Ezequiel Pérez Dittler" weight="0.778659611993" />
+      <edge id="139" source="Ignacio Garay" target="Marco Lotto" weight="0.106878306878" />
+      <edge id="140" source="Ignacio Garay" target="Sebastián Piccoli" weight="0.127513227513" />
+      <edge id="141" source="Ignacio Garay" target="Pablo Angelani" weight="0.430731922399" />
+      <edge id="142" source="Ignacio Garay" target="Fernando Pereira" weight="1.45330687831" />
+      <edge id="143" source="Ignacio Garay" target="Pablon" weight="1.29395943563" />
+      <edge id="144" source="Ignacio Garay" target="Agustin Origone" weight="0.403218694885" />
+      <edge id="145" source="Sebastian Bogado" target="Marco Lotto" weight="0.104585537919" />
+      <edge id="146" source="Sebastian Bogado" target="Fernando Pereira" weight="1.00277777778" />
+      <edge id="147" source="Sebastian Bogado" target="Ezequiel Pérez Dittler" weight="0.485758377425" />
+      <edge id="148" source="Sebastian Bogado" target="Sebastián Piccoli" weight="0.119488536155" />
+      <edge id="149" source="Sebastian Bogado" target="Lucas Awad" weight="0.109744268078" />
+      <edge id="150" source="Sebastian Bogado" target="Pablo Angelani" weight="0.284567901235" />
+      <edge id="151" source="Sebastian Bogado" target="Tomás Reale" weight="1.66366843034" />
+      <edge id="152" source="Sebastian Bogado" target="Pablon" weight="0.778086419753" />
+      <edge id="153" source="Sebastian Bogado" target="Agustin Origone" weight="0.212345679012" />
+      <edge id="154" source="Tomás Reale" target="Lucas Awad" weight="0.192283950617" />
+      <edge id="155" source="Tomás Reale" target="Ezequiel Pérez Dittler" weight="2.17839506173" />
+      <edge id="156" source="Tomás Reale" target="Marco Lotto" weight="0.131525573192" />
+      <edge id="157" source="Tomás Reale" target="Sebastián Piccoli" weight="0.189417989418" />
+      <edge id="158" source="Tomás Reale" target="Pablo Angelani" weight="0.975264550265" />
+      <edge id="159" source="Tomás Reale" target="Fernando Pereira" weight="4.0" />
+      <edge id="160" source="Tomás Reale" target="Pablon" weight="3.77473544974" />
+      <edge id="161" source="Tomás Reale" target="Agustin Origone" weight="0.91164021164" />
+      <edge id="162" source="Ezequiel Pérez Dittler" target="Marco Lotto" weight="0.111463844797" />
+      <edge id="163" source="Ezequiel Pérez Dittler" target="Pablon" weight="1.10194003527" />
+      <edge id="164" source="Ezequiel Pérez Dittler" target="Sebastián Piccoli" weight="0.144135802469" />
+      <edge id="165" source="Ezequiel Pérez Dittler" target="Lucas Awad" weight="0.130379188713" />
+      <edge id="166" source="Ezequiel Pérez Dittler" target="Pablo Angelani" weight="0.292019400353" />
+      <edge id="167" source="Ezequiel Pérez Dittler" target="Fernando Pereira" weight="1.32777777778" />
+      <edge id="168" source="Ezequiel Pérez Dittler" target="Agustin Origone" weight="0.293165784832" />
+      <edge id="169" source="Marco Lotto" target="Pablon" weight="0.117195767196" />
+      <edge id="170" source="Marco Lotto" target="Lucas Awad" weight="0.10114638448" />
+      <edge id="171" source="Marco Lotto" target="Sebastián Piccoli" weight="0.10057319224" />
+      <edge id="172" source="Marco Lotto" target="Pablo Angelani" weight="0.102865961199" />
+      <edge id="173" source="Marco Lotto" target="Fernando Pereira" weight="0.118915343915" />
+      <edge id="174" source="Marco Lotto" target="Agustin Origone" weight="0.10057319224" />
+      <edge id="175" source="Sebastián Piccoli" target="Pablon" weight="0.207760141093" />
+      <edge id="176" source="Sebastián Piccoli" target="Lucas Awad" weight="0.102292768959" />
+      <edge id="177" source="Sebastián Piccoli" target="Pablo Angelani" weight="0.108597883598" />
+      <edge id="178" source="Sebastián Piccoli" target="Fernando Pereira" weight="0.225529100529" />
+      <edge id="179" source="Sebastián Piccoli" target="Agustin Origone" weight="0.116049382716" />
+      <edge id="180" source="Lucas Awad" target="Pablo Angelani" weight="0.104585537919" />
+      <edge id="181" source="Lucas Awad" target="Fernando Pereira" weight="0.168209876543" />
+      <edge id="182" source="Lucas Awad" target="Pablon" weight="0.145282186949" />
+      <edge id="183" source="Lucas Awad" target="Agustin Origone" weight="0.109171075838" />
+      <edge id="184" source="Pablo Angelani" target="Pablon" weight="0.451940035273" />
+      <edge id="185" source="Pablo Angelani" target="Agustin Origone" weight="0.184832451499" />
+      <edge id="186" source="Pablo Angelani" target="Fernando Pereira" weight="0.916798941799" />
+      <edge id="187" source="Fernando Pereira" target="Pablon" weight="2.04369488536" />
+      <edge id="188" source="Fernando Pereira" target="Agustin Origone" weight="0.806172839506" />
+      <edge id="189" source="Pablon" target="Agustin Origone" weight="0.593518518519" />
     </edges>
   </graph>
 </gexf>

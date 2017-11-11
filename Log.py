@@ -1,5 +1,6 @@
 
 import wordcloud
+import matplotlib.pyplot as plt
 from abc import ABCMeta, abstractmethod
 from operator import add
 from text_cleanner import clean_text
@@ -55,6 +56,52 @@ class Log:
                                     .zipWithIndex().filter(lambda t: t[1] < words_amount) \
                                     .map(lambda x: (x[0][0],x[0][1])) \
                                     .collectAsMap()
+
+    def get_messages_by_hour(self):
+        """
+        :returns: dict {hour <int>, amount <int>}
+        hour is from 0 to 23
+        """
+        return self.get_messages().map(lambda t: (t[0].hour, 1)).reduceByKey(add).collectAsMap()
+
+    def get_messages_by_hour_histogram(self, figure_filename="hour_histogram.png"):
+        messages_by_hour = self.get_messages_by_hour()
+        draw_bar_graph(figure_filename, messages_by_hour.keys(), messages_by_hour.values())
+
+    def get_messages_by_day_of_the_week(self):
+        """
+        :returns: dict {(day_number, day_name) <tuple>, amount <int>}
+        """
+        days = {
+            0: "Monday", 1: "Tuesday", 2: "Wednesday", 3: "Thursday", 4: "Friday", 5: "Saturday", 6: "Sunday"
+        }
+
+        return self.get_messages().map(lambda t: ((t[0].weekday(), days[t[0].weekday()]), 1))\
+                                    .reduceByKey(add)\
+                                    .collectAsMap()
+
+    def get_messages_by_day_of_the_week_histogram(self, figure_filename="day_histogram.png"):
+        messages_by_days = self.get_messages_by_day_of_the_week()
+
+        sorted_by_day = sorted(messages_by_days.iteritems(), cmp=lambda a, b: cmp(a[0][0], b[0][0]))
+        labels = [item[0][1] for item in sorted_by_day]
+        values = [item[1] for item in sorted_by_day]
+
+        draw_bar_graph(figure_filename, labels, values)
+
+
+def draw_bar_graph(figure_filename, labels, values):
+    """
+    :param figure_filename: to store the image
+    :param labels: list of labels
+    :param values: list of values
+    Pre: len(labels) == len(values)
+    """
+    plt.clf()
+    plt.bar(range(len(labels)), values, align='center')
+    plt.xticks(range(len(labels)), labels)
+    plt.savefig(figure_filename)
+
 
 class ChatLog(Log):
     """

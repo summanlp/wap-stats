@@ -5,7 +5,6 @@ import re
 from datetime import datetime
 from Log import ChatLog
 from text_cleanner import to_unicode
-from pagerank_weighted import pagerank_weighted_scipy as pagerank
 from export import gexf_export_from_graph
 
 ANDROID = "android"
@@ -14,10 +13,17 @@ IOS = "ios"
 DATE_MESSAGE_SEPARATOR = " - "
 USER_MESSAGE_SEPARATOR = ": "
 
-ANDROID_DATETIME_FORMAT = "%m/%d/%y, %H:%M"
-IOS_DATETIME_FORMAT = "%d/%m/%y %H:%M:%S"
+ANDROID_DATETIME_FORMAT_EN = "%m/%d/%y, %H:%M"
+ANDROID_DATETIME_FORMAT_ES = "%d/%m/%y, %H:%M"
+IOS_DATETIME_FORMAT_ES = "%d/%m/%y %H:%M:%S"
+IOS_DATETIME_FORMAT_EN = "%d/%m/%y %H:%M:%S"
+
+SPANISH = "es"
+ENGLISH = "en"
 
 EXCLUDED = ["Media omitted", "http", "omitido", "omitida"]
+
+date_format = ANDROID_DATETIME_FORMAT_ES
 
 
 def remove_invalid_lines(text_rdd, device_type):
@@ -44,9 +50,7 @@ def create_user_tuple(line, device_type):
     name = line[date_end_index + len(DATE_MESSAGE_SEPARATOR):name_end_index]
     message = line[name_end_index + len(USER_MESSAGE_SEPARATOR):]
 
-    if device_type == IOS:
-        return name, (datetime.strptime(date, IOS_DATETIME_FORMAT), message)
-    return name, (datetime.strptime(date, ANDROID_DATETIME_FORMAT), message)
+    return name, (datetime.strptime(date, date_format), message)
 
 
 def process_chat(file_path, device_type):
@@ -58,15 +62,15 @@ def process_chat(file_path, device_type):
     return ChatLog(file_path, text_rdd.map(lambda t: create_user_tuple(t, device_type)))
 
 
-def word_reporting(chat_log, users_data):
-    print "Total palabras: " + str(chat_log.count_words())
+def word_reporting(users_data):
 
     uwc = [(user.name, user.count_messages(), user.count_words(), user.count_words(clean=True)) for user in users_data]
     uwc = sorted(uwc, cmp=lambda a,b: cmp(b[1], a[1]))
 
-    f = open("data.csv","w")
+    f = open("report.csv", "w")
 
     header = "user,messages,words,word message ratio,words (without stopwords),word message ratio\n"
+    messages_acum, words_acum, words_nostop_acum = 0, 0, 0
     print header
     f.write(header)
     for t in uwc:
@@ -76,6 +80,34 @@ def word_reporting(chat_log, users_data):
         print s
         f.write(s)
 
+        messages_acum += t[1]
+        words_acum += t[2]
+        words_nostop_acum += t[3]
+
+    s = "Total,{},{},{a:.2f},{c},{b:.2f}\n".format(messages_acum, words_acum, a=words_acum / float(messages_acum),
+                                                   c=words_nostop_acum, b=words_nostop_acum / float(messages_acum))
+    print s
+    f.write(s)
+
+    f.close()
+
+
+def word_count(chat_log):
+    word_amount = 50
+    wc = chat_log.get_word_count(words_amount=word_amount)
+    swc = sorted([(k, v) for k, v in wc.iteritems()], cmp=lambda a, b: cmp(b[1], a[1]))
+
+    f = open("most_common_words.csv", "w")
+
+    print "{} Most common words".format(word_amount)
+    i = 1
+
+    for k, v in swc:
+        s = "{},{}\n".format(v, k.encode("utf-8"))
+        print s
+        f.write(s)
+        i += 1
+
     f.close()
 
 
@@ -84,27 +116,37 @@ def graph_export(chat_log):
     gexf_export_from_graph(graph, path="views/test.gexf")
 
 
+def set_date_format(device, language):
+    key_generator = lambda a, b: a + "_" + b
+    formats = {
+        key_generator(ANDROID, SPANISH): ANDROID_DATETIME_FORMAT_ES,
+        key_generator(ANDROID, ENGLISH): ANDROID_DATETIME_FORMAT_EN,
+        key_generator(IOS, SPANISH): IOS_DATETIME_FORMAT_ES,
+        key_generator(IOS, ENGLISH): IOS_DATETIME_FORMAT_EN
+    }
+
+    global date_format
+    date_format = formats[key_generator(device, language)]
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Analyze WhatsApp Chats')
     parser.add_argument('-f', '--file', help='Chat log file name', required=True)
     parser.add_argument('-d', '--device', help='Device where the chat was taken:', choices=[ANDROID,IOS], required=True)
+    parser.add_argument('-l', '--language', help='Language of the phone:', choices=[ENGLISH, SPANISH])
 
     args = parser.parse_args()
 
+    set_date_format(args.device, args.language)
+
     chat_log = process_chat(args.file, args.device)
+    #
+    # word_reporting(chat_log.get_users_data())
+    #
+    # word_count(chat_log)
+    #
+    # chat_log.export_word_cloud()
 
-    wc = chat_log.get_word_count(words_amount=100)
-
-    swc = sorted([(k,v) for k,v in wc.iteritems()], cmp=lambda a,b: cmp(b[1], a[1]))
-
-    for k,v in swc:
-        print "{} - {}".format(v,k.encode("utf-8"))
-
-
-
-
-
-
-
-
-
+    # graph_export(chat_log)
+    chat_log.get_messages_by_hour_histogram()
+    chat_log.get_messages_by_day_of_the_week_histogram()
