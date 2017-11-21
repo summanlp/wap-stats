@@ -1,10 +1,8 @@
 
 import wordcloud
 import matplotlib.pyplot as plt
-from pprint import pprint
 
-from collections import Counter
-
+import datetime
 from abc import ABCMeta, abstractmethod
 from operator import add
 from text_cleanner import clean_text
@@ -92,13 +90,29 @@ class Log:
     def get_messages_by_day_of_the_year_histogram(self, figure_filename="date_histogram.png"):
         messages_by_date = self.get_messages_by_date()
 
-        pprint(Counter(messages_by_date).most_common(10))
-        sorted_by_day = sorted(messages_by_date.iteritems(),
-                               cmp=lambda a, b: cmp(a[0], b[0]))
-        labels = [item[0] for item in sorted_by_day]
-        values = [item[1] for item in sorted_by_day]
+        # Fills all the days missing with zeros
+        first_date = messages_by_date.keys()[0]
+        last_date = messages_by_date.keys()[0]
+        for date in messages_by_date:
+            if date < first_date:
+                first_date = date
+            if date > last_date:
+                last_date = date
 
-        draw_bar_graph(figure_filename, labels, values)
+        date = first_date
+        one_day = datetime.timedelta(days=1)
+        while date <= last_date:
+            if date not in messages_by_date:
+                messages_by_date[date] = 0
+            date += one_day
+
+        messages_by_date = sorted(messages_by_date.iteritems(),
+                                  cmp=lambda a, b: cmp(a[0], b[0]))
+
+        labels = [item[0] for item in messages_by_date]
+        values = [item[1] for item in messages_by_date]
+
+        draw_large_bar_graph(figure_filename, labels, values, step=15)
 
     def get_messages_by_day_of_the_week_histogram(self, figure_filename="day_histogram.png"):
         messages_by_days = self.get_messages_by_day_of_the_week()
@@ -163,7 +177,9 @@ class ChatLog(Log):
 
     def to_string(self):
         """Combines the whole log in one string"""
-        return self.messages.map(lambda t: t[1][1]).reduce(lambda a, b: a + " " + b)
+        return self.messages \
+            .map(lambda t: t[1][1]) \
+            .reduce(lambda a, b: a + " " + b)
 
     def get_messages(self):
         return self.messages.map(lambda t: t[1])

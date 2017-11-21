@@ -147,6 +147,6 @@ if __name__ == "__main__":
     #
     # chat_log.export_word_cloud()
     # graph_export(chat_log)
-    # chat_log.get_messages_by_hour_histogram()
-    # chat_log.get_messages_by_day_of_the_week_histogram()
+    chat_log.get_messages_by_hour_histogram()
+    chat_log.get_messages_by_day_of_the_week_histogram()
     chat_log.get_messages_by_day_of_the_year_histogram()
