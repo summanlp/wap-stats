@@ -58,8 +58,9 @@ def process_chat(file_path, device_type):
 
     text_rdd = sc.textFile(file_path)
     text_rdd = remove_invalid_lines(text_rdd, device_type)
+    rdd = text_rdd.map(lambda t: create_user_tuple(t, device_type))
 
-    return ChatLog(file_path, text_rdd.map(lambda t: create_user_tuple(t, device_type)))
+    return ChatLog(file_path, rdd)
 
 
 def word_reporting(users_data):
@@ -86,7 +87,6 @@ def word_reporting(users_data):
 
     s = "Total,{},{},{a:.2f},{c},{b:.2f}\n".format(messages_acum, words_acum, a=words_acum / float(messages_acum),
                                                    c=words_nostop_acum, b=words_nostop_acum / float(messages_acum))
-    print s
     f.write(s)
 
     f.close()
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     # word_count(chat_log)
     #
     # chat_log.export_word_cloud()
-
     # graph_export(chat_log)
-    chat_log.get_messages_by_hour_histogram()
-    chat_log.get_messages_by_day_of_the_week_histogram()
+    # chat_log.get_messages_by_hour_histogram()
+    # chat_log.get_messages_by_day_of_the_week_histogram()
+    chat_log.get_messages_by_day_of_the_year_histogram()

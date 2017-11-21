@@ -1,6 +1,10 @@
 
 import wordcloud
 import matplotlib.pyplot as plt
+from pprint import pprint
+
+from collections import Counter
+
 from abc import ABCMeta, abstractmethod
 from operator import add
 from text_cleanner import clean_text
@@ -80,6 +84,22 @@ class Log:
                                     .reduceByKey(add)\
                                     .collectAsMap()
 
+    def get_messages_by_date(self):
+        return self.get_messages().map(lambda t: (t[0].date(), 1))\
+            .reduceByKey(add)\
+            .collectAsMap()
+
+    def get_messages_by_day_of_the_year_histogram(self, figure_filename="date_histogram.png"):
+        messages_by_date = self.get_messages_by_date()
+
+        pprint(Counter(messages_by_date).most_common(10))
+        sorted_by_day = sorted(messages_by_date.iteritems(),
+                               cmp=lambda a, b: cmp(a[0], b[0]))
+        labels = [item[0] for item in sorted_by_day]
+        values = [item[1] for item in sorted_by_day]
+
+        draw_bar_graph(figure_filename, labels, values)
+
     def get_messages_by_day_of_the_week_histogram(self, figure_filename="day_histogram.png"):
         messages_by_days = self.get_messages_by_day_of_the_week()
 
@@ -100,6 +120,25 @@ def draw_bar_graph(figure_filename, labels, values):
     plt.clf()
     plt.bar(range(len(labels)), values, align='center')
     plt.xticks(range(len(labels)), labels)
+    plt.savefig(figure_filename)
+
+
+def draw_large_bar_graph(figure_filename, labels, values, step=1):
+    """
+    Function to draw large bar graphs with a step in the x axis labels so that
+    they don't clash within each other.
+    :param figure_filename: to store the image
+    :param labels: list of labels
+    :param values: list of values
+    :param step: frequency of x axis label in figure (i.e.: one of every _step_
+    labels will be shown).
+
+    Pre: len(labels) == len(values)
+    """
+    plt.clf()
+    plt.figure(figsize=(20, 7))
+    plt.bar(range(len(labels)), values, align='center')
+    plt.xticks(range(0, len(labels), step), labels[::step], rotation=45)
     plt.savefig(figure_filename)
 
 
