@@ -21,7 +21,8 @@ IOS_DATETIME_FORMAT_EN = "%d/%m/%y %H:%M:%S"
 SPANISH = "es"
 ENGLISH = "en"
 
-EXCLUDED = ["Media omitted", "http", "omitido", "omitida"]
+EXCLUDED = [] #"["Media omitted", "http", "omitido", "omitida"]
+
 
 date_format = ANDROID_DATETIME_FORMAT_ES
 
@@ -100,13 +101,11 @@ def word_count(chat_log):
     f = open("most_common_words.csv", "w")
 
     print "{} Most common words".format(word_amount)
-    i = 1
 
     for k, v in swc:
         s = "{},{}\n".format(v, k.encode("utf-8"))
         print s
         f.write(s)
-        i += 1
 
     f.close()
 
@@ -129,6 +128,13 @@ def set_date_format(device, language):
     date_format = formats[key_generator(device, language)]
 
 
+def print_dict(title, dict):
+    sorted_by_value = sorted(dict.iteritems(), cmp=lambda x,y: cmp(y[1], x[1]))
+    print title
+    for k,v in sorted_by_value:
+        print "{} - {}".format(v, k.encode('utf-8'))
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Analyze WhatsApp Chats')
     parser.add_argument('-f', '--file', help='Chat log file name', required=True)
@@ -141,12 +147,14 @@ if __name__ == "__main__":
 
     chat_log = process_chat(args.file, args.device)
 
-    word_reporting(chat_log.get_users_data())
+    print_dict("After 3 hour:", chat_log.get_ice_breakers(3))
 
-    word_count(chat_log)
-
-    chat_log.export_word_cloud()
-
-    graph_export(chat_log)
-    chat_log.get_messages_by_hour_histogram(args.file + "_hour_histogram.png")
-    chat_log.get_messages_by_day_of_the_week_histogram(args.file + "_days_histogram.png")
+    # word_reporting(chat_log.get_users_data())
+    #
+    # word_count(chat_log)
+    #
+    # chat_log.export_word_cloud()
+    #
+    # graph_export(chat_log)
+    # chat_log.get_messages_by_hour_histogram(args.file + "_hour_histogram.png")
+    # chat_log.get_messages_by_day_of_the_week_histogram(args.file + "_days_histogram.png")

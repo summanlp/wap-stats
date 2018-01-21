@@ -154,13 +154,38 @@ class ChatLog(Log):
 
         return graph
 
+    def get_ice_breakers(self, quiet_hours=1):
+        """
+        Get who is the person that starts conversations (breaks the ice) after quiet_hours of silence.
+        :param quiet_hours: amount of hours between messages to say that the user "broke the ice"
+        :return: dict of user name and amount of times he/she broke the ice
+        """
+        ice_breakers = {}
+        threshold = quiet_hours * 3600
+
+        last_message = self.messages.take(1)[0]
+
+        for message in self.messages.toLocalIterator():
+            time_delta = message[1][0] - last_message[1][0]
+
+            last_message = message
+
+            if time_delta.total_seconds() <= threshold: continue
+
+            user_name = message[0]
+            if user_name in ice_breakers:
+                ice_breakers[user_name] += 1
+            else:
+                ice_breakers[user_name] = 1
+
+        return ice_breakers
+
 
 def build_graph(users):
     graph = Graph()
     for user in users:
         graph.add_node(user)
     return graph
-
 
 
 class UserLog(Log):
