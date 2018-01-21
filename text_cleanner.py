@@ -27,6 +27,12 @@ def strip_numeric(s):
     return RE_NUMERIC.sub("", s)
 
 
+RE_LAUGH = re.compile(r"\b(?:a*(?:ha)+h?|(?:a*(?:ja)+j?))\b")
+def strip_laugh(s):
+    s = to_unicode(s)
+    return RE_LAUGH.sub("", s)
+
+
 def remove_stopwords(sentence, language):
     stopwords = get_stopwords_by_language(language)
     return " ".join(w for w in sentence.split() if w not in stopwords)
@@ -52,6 +58,6 @@ def deaccent(text):
 
 
 def clean_text(s, language):
-    functions = [lambda w: w.lower(), deaccent, strip_punctuation, strip_numeric]
+    functions = [lambda w: w.lower(), deaccent, strip_punctuation, strip_numeric, strip_laugh]
     for f in functions: s = f(s)
     return remove_stopwords(s, language)

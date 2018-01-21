@@ -140,13 +140,13 @@ if __name__ == "__main__":
     set_date_format(args.device, args.language)
 
     chat_log = process_chat(args.file, args.device)
-    #
-    # word_reporting(chat_log.get_users_data())
-    #
-    # word_count(chat_log)
-    #
-    # chat_log.export_word_cloud()
 
-    # graph_export(chat_log)
-    chat_log.get_messages_by_hour_histogram()
-    chat_log.get_messages_by_day_of_the_week_histogram()
+    word_reporting(chat_log.get_users_data())
+
+    word_count(chat_log)
+
+    chat_log.export_word_cloud()
+
+    graph_export(chat_log)
+    chat_log.get_messages_by_hour_histogram(args.file + "_hour_histogram.png")
+    chat_log.get_messages_by_day_of_the_week_histogram(args.file + "_days_histogram.png")
