@@ -30,12 +30,12 @@ class Log:
     @abstractmethod
     def to_string(self):
         """:returns: all the messages together as one string"""
-        return ""
+        pass
 
     @abstractmethod
     def get_messages(self):
         """ :return: rdd of (datetime <datetime>, message <str>) without user information """
-        return None
+        pass
 
     def count_messages(self):
         return self.messages.count()
@@ -179,6 +179,82 @@ class ChatLog(Log):
                 ice_breakers[user_name] = 1
 
         return ice_breakers
+
+    def get_trending_topics(self):
+        messages_by_week = self.get_messages().map(process_trending_topic_tuple) \
+            .reduceByKey(add).collectAsMap()
+        ordered = sorted(messages_by_week.iteritems())
+        all_weeks_freqs = [get_freq_dict(words) for _, words in ordered]
+
+        history_length = 2
+        threshold = 5
+
+        results = []
+
+        for i in xrange(history_length, len(all_weeks_freqs)):
+            history = build_history_of_freqs(all_weeks_freqs, i - history_length, history_length)
+            current_week = all_weeks_freqs[i]
+
+            results.append((ordered[i][0], chi_squared_test(history, current_week, threshold)))
+
+        return results
+
+
+def chi_squared_test(expected, observed, threshold=0):
+    get_total_of_values = lambda d: sum([d[k] for k in d])
+    total_expected = float(get_total_of_values(expected))
+    total_observed = float(get_total_of_values(observed))
+    result = {}
+
+    for word in observed:
+        value_observed = observed[word] / total_observed
+        value_expected = expected.get(word, 0) / total_expected
+
+        if observed[word] < threshold or value_observed < value_expected: continue
+
+        chi_squared_value = ((value_observed - value_expected)**2) / (value_expected + 1)
+
+        result[word] = chi_squared_value
+
+    sorted_result = sorted(result.iteritems(), cmp=lambda x, y: cmp(y[1], x[1]))[0:3]
+
+    return {k: v for k, v in sorted_result}
+
+
+def build_history_of_freqs(freqs, index, offset):
+    result = freqs[index].copy()
+    for i in xrange(index + 1, index + offset):
+        current = freqs[i]
+        for word in current:
+            if word in result:
+                result[word] += current[word]
+            else:
+                result[word] = current[word]
+
+    return result
+
+
+def get_freq_dict(seq):
+    freqs = {}
+    for item in seq:
+        if item in freqs:
+            freqs[item] += 1
+        else:
+            freqs[item] = 1
+    return freqs
+
+
+
+def process_trending_topic_tuple(t):
+    date = t[0].isocalendar()
+    week_tag = str(date[1])
+    if len(week_tag) == 1: week_tag = "0" + week_tag
+
+    year_week_tag = str(date[0]) + "-" + week_tag
+
+    message = clean_text(t[1], LANGUAGE).split()
+
+    return year_week_tag, message
 
 
 def build_graph(users):

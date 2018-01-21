@@ -21,7 +21,7 @@ IOS_DATETIME_FORMAT_EN = "%d/%m/%y %H:%M:%S"
 SPANISH = "es"
 ENGLISH = "en"
 
-EXCLUDED = [] #"["Media omitted", "http", "omitido", "omitida"]
+EXCLUDED = ["Media omitted", "http", "omitido", "omitida"]
 
 
 date_format = ANDROID_DATETIME_FORMAT_ES
@@ -72,13 +72,13 @@ def word_reporting(users_data):
 
     header = "user,messages,words,word message ratio,words (without stopwords),word message ratio\n"
     messages_acum, words_acum, words_nostop_acum = 0, 0, 0
-    print header
+    print(header)
     f.write(header)
     for t in uwc:
         word_message_ratio = t[2] / float(t[1])
         word_nostop_message_ratio = t[3] / float(t[1])
         s = "{},{},{},{a:.2f},{c},{b:.2f}\n".format(t[0], t[1], t[2], a=word_message_ratio, c=t[3], b=word_nostop_message_ratio)
-        print s
+        print(s)
         f.write(s)
 
         messages_acum += t[1]
@@ -87,7 +87,7 @@ def word_reporting(users_data):
 
     s = "Total,{},{},{a:.2f},{c},{b:.2f}\n".format(messages_acum, words_acum, a=words_acum / float(messages_acum),
                                                    c=words_nostop_acum, b=words_nostop_acum / float(messages_acum))
-    print s
+    print(s)
     f.write(s)
 
     f.close()
@@ -147,7 +147,13 @@ if __name__ == "__main__":
 
     chat_log = process_chat(args.file, args.device)
 
-    print_dict("After 3 hour:", chat_log.get_ice_breakers(3))
+    trending_topics = chat_log.get_trending_topics()
+
+    for t in trending_topics:
+        print "\nWeek {}".format(t[0])
+        print [k for k in t[1]]
+
+    # print_dict("After 3 hour:", chat_log.get_ice_breakers(3))
 
     # word_reporting(chat_log.get_users_data())
     #
