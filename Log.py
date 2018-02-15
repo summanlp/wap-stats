@@ -41,7 +41,7 @@ class Log:
         return self.messages.count()
 
     def count_words(self, clean=False):
-        """Clean flags set stopwords, digits and punctuation removal"""
+        """Clean flag set stopwords, digits and punctuation removal"""
         if clean:
             return self.get_messages().map(lambda t: len(clean_text(t[1], LANGUAGE).split())).reduce(add)
         return self.get_messages().map(lambda t: len(t[1].split())).reduce(add)

@@ -6,6 +6,7 @@ from datetime import datetime
 from Log import ChatLog
 from text_cleanner import to_unicode
 from export import gexf_export_from_graph
+from user_comparator import get_users_similarity
 
 ANDROID = "android"
 IOS = "ios"
@@ -147,11 +148,20 @@ if __name__ == "__main__":
 
     chat_log = process_chat(args.file, args.device)
 
-    trending_topics = chat_log.get_trending_topics()
+    matrix = get_users_similarity(chat_log.get_users_data())
 
-    for t in trending_topics:
-        print "\nWeek {}".format(t[0])
-        print [k for k in t[1]]
+    for user, row in matrix.iteritems():
+        minimum = min(row.items(), key=lambda x: x[1][0])
+        most_similar = minimum[0]
+        data = minimum[1]
+        print "Most similar of {} is {}: in common: {}, different: {}, distance: {}"\
+            .format(user, most_similar, data[1], data[2], data[0])
+
+    # trending_topics = chat_log.get_trending_topics()
+    #
+    # for t in trending_topics:
+    #     print "\nWeek {}".format(t[0])
+    #     print [k for k in t[1]]
 
     # print_dict("After 3 hour:", chat_log.get_ice_breakers(3))
 
