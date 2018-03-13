@@ -1,10 +1,13 @@
 
+import findspark
+findspark.init()
+
 from pyspark import SparkContext
 import argparse
 import re
 from datetime import datetime
 from Log import ChatLog
-from text_cleanner import to_unicode
+from text_cleanner import to_string
 from export import gexf_export_from_graph
 from user_comparator import get_users_similarity
 
@@ -41,7 +44,7 @@ def remove_invalid_lines(text_rdd, device_type):
         rdd = rdd.filter(lambda line: term not in line)
         rdd.persist()
 
-    return rdd.map(to_unicode).map(lambda line: line.rstrip())
+    return rdd.map(to_string).map(lambda line: line.rstrip())
 
 
 def create_user_tuple(line, device_type):
@@ -101,11 +104,11 @@ def word_count(chat_log):
 
     f = open("most_common_words.csv", "w")
 
-    print "{} Most common words".format(word_amount)
+    print("{} Most common words".format(word_amount))
 
     for k, v in swc:
         s = "{},{}\n".format(v, k.encode("utf-8"))
-        print s
+        print(s)
         f.write(s)
 
     f.close()
@@ -131,9 +134,9 @@ def set_date_format(device, language):
 
 def print_dict(title, dict):
     sorted_by_value = sorted(dict.iteritems(), cmp=lambda x,y: cmp(y[1], x[1]))
-    print title
+    print(title)
     for k,v in sorted_by_value:
-        print "{} - {}".format(v, k.encode('utf-8'))
+        print("{} - {}".format(v, k.encode('utf-8')))
 
 
 if __name__ == "__main__":
@@ -150,18 +153,18 @@ if __name__ == "__main__":
 
     matrix = get_users_similarity(chat_log.get_users_data())
 
-    for user, row in matrix.iteritems():
+    for user, row in matrix.items():
         minimum = min(row.items(), key=lambda x: x[1][0])
         most_similar = minimum[0]
         data = minimum[1]
-        print "Most similar of {} is {}: in common: {}, different: {}, distance: {}"\
-            .format(user, most_similar, data[1], data[2], data[0])
+        print("Most similar of {} is {}: in common: {}, different: {}, distance: {}"\
+            .format(user, most_similar, data[1], data[2], data[0]))
 
     # trending_topics = chat_log.get_trending_topics()
     #
     # for t in trending_topics:
-    #     print "\nWeek {}".format(t[0])
-    #     print [k for k in t[1]]
+    #     print("\nWeek {}".format(t[0]))
+    #     print([k for k in t[1]])
 
     # print_dict("After 3 hour:", chat_log.get_ice_breakers(3))
 

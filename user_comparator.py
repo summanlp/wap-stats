@@ -17,7 +17,7 @@ class WordProfile:
         :param word_freqs: dictionary of word frequencies
         """
         self.profile = {}
-        sorted_words_by_freq = sorted(word_freqs.items(), key=operator.itemgetter(1), cmp=lambda x, y: cmp(y, x))
+        sorted_words_by_freq = sorted(list(word_freqs.items()), key=operator.itemgetter(1), reverse=True)
         self.create_profile_dict(sorted_words_by_freq)
 
     @classmethod
@@ -36,7 +36,7 @@ class WordProfile:
         :return: dictionary of {ngram: (freq, order)}
         """
         iterations = MAX_AMOUNT_OF_WORDS if len(sorted_freqs) >= MAX_AMOUNT_OF_WORDS else len(sorted_freqs)
-        for i in xrange(iterations):
+        for i in range(iterations):
             word, freq = sorted_freqs[i]
             self.profile[word] = freq, i
         return self.profile
@@ -52,12 +52,12 @@ class WordProfile:
         return freqs
 
     def get_size_of_intersection_and_complement(self, other):
-        intersection_dimension = len(self.profile.viewkeys() & other.profile.viewkeys())
+        intersection_dimension = len(self.profile.keys() & other.profile.keys())
         not_intersected_dimension = len(self.profile) + len(other.profile) - 2 * intersection_dimension
         return intersection_dimension, not_intersected_dimension
 
     def get_profile_distance(self, other):
-        intersection = self.profile.viewkeys() & other.profile.viewkeys()
+        intersection = self.profile.keys() & other.profile.keys()
         result = 0
         for word in intersection:
             position_in_self = self.profile[word][1]
@@ -82,11 +82,11 @@ def get_users_similarity(users_data):
         if len(word_count) >= MAX_AMOUNT_OF_WORDS:
             profiles[user_log.name] = WordProfile(word_count)
 
-    users = profiles.keys()
+    users = list(profiles.keys())
 
     result = {user: {} for user in users}
-    for i in xrange(len(users)):
-        for j in xrange(i + 1, len(users)):
+    for i in range(len(users)):
+        for j in range(i + 1, len(users)):
             user_a = users[i]
             user_b = users[j]
             distance = profiles[user_a].get_profile_distance(profiles[user_b])
