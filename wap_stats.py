@@ -2,9 +2,9 @@
 import findspark
 findspark.init()
 
-from pyspark import SparkContext
 import argparse
 import re
+from pyspark import SparkContext
 from datetime import datetime
 from Log import ChatLog
 from text_cleanner import to_string
@@ -28,12 +28,26 @@ ENGLISH = "en"
 EXCLUDED = ["Media omitted", "http", "omitido", "omitida"]
 
 
-date_format = ANDROID_DATETIME_FORMAT_ES
+date_format = IOS_DATETIME_FORMAT_ES
+
+
+def cmp(a, b):
+    return (a > b) - (a < b)
 
 
 def remove_invalid_lines(text_rdd, device_type):
+    """
+    IOS format:
+    [21/1/18 21:07:13] User A: message one of user A
+    [21/1/18 21:07:22] User A: message two of user A
+    [21/1/18 21:07:33] User B: message one of user B
+
+    """
+
     if device_type != ANDROID:
-        text_rdd = text_rdd.map(lambda line: line.replace(": ", DATE_MESSAGE_SEPARATOR, 1))
+        text_rdd = text_rdd.map(lambda line: line.replace("[", "", 1))\
+                            .map(lambda line: line.replace("] ", DATE_MESSAGE_SEPARATOR, 1))
+
 
     # removes lines with invalid format
     valid_line = re.compile("\A\d+/\d+/\d+,? \d+:\d+(:\d+)?\s-\s.*: .*")
@@ -70,7 +84,7 @@ def process_chat(file_path, device_type):
 def word_reporting(users_data):
 
     uwc = [(user.name, user.count_messages(), user.count_words(), user.count_words(clean=True)) for user in users_data]
-    uwc = sorted(uwc, cmp=lambda a,b: cmp(b[1], a[1]))
+    uwc = sorted(uwc, key=lambda a: a[1], reverse=True)
 
     f = open("report.csv", "w")
 
@@ -100,7 +114,7 @@ def word_reporting(users_data):
 def word_count(chat_log):
     word_amount = 50
     wc = chat_log.get_word_count(words_amount=word_amount)
-    swc = sorted([(k, v) for k, v in wc.iteritems()], cmp=lambda a, b: cmp(b[1], a[1]))
+    swc = sorted([(k, v) for k, v in wc.items()], key=lambda a: a[1], reverse=True)
 
     f = open("most_common_words.csv", "w")
 
@@ -142,7 +156,7 @@ def print_dict(title, dict):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Analyze WhatsApp Chats')
     parser.add_argument('-f', '--file', help='Chat log file name', required=True)
-    parser.add_argument('-d', '--device', help='Device where the chat was taken:', choices=[ANDROID,IOS], required=True)
+    parser.add_argument('-d', '--device', help='Device where the chat was taken:', choices=[ANDROID, IOS], required=True)
     parser.add_argument('-l', '--language', help='Language of the phone:', choices=[ENGLISH, SPANISH])
 
     args = parser.parse_args()
@@ -151,14 +165,14 @@ if __name__ == "__main__":
 
     chat_log = process_chat(args.file, args.device)
 
-    matrix = get_users_similarity(chat_log.get_users_data())
-
-    for user, row in matrix.items():
-        minimum = min(row.items(), key=lambda x: x[1][0])
-        most_similar = minimum[0]
-        data = minimum[1]
-        print("Most similar of {} is {}: in common: {}, different: {}, distance: {}"\
-            .format(user, most_similar, data[1], data[2], data[0]))
+    # matrix = get_users_similarity(chat_log.get_users_data())
+    #
+    # for user, row in matrix.items():
+    #     minimum = min(row.items(), key=lambda x: x[1][0])
+    #     most_similar = minimum[0]
+    #     data = minimum[1]
+    #     print("Most similar of {} is {}: in common: {}, different: {}, distance: {}"\
+    #         .format(user, most_similar, data[1], data[2], data[0]))
 
     # trending_topics = chat_log.get_trending_topics()
     #
@@ -168,9 +182,9 @@ if __name__ == "__main__":
 
     # print_dict("After 3 hour:", chat_log.get_ice_breakers(3))
 
-    # word_reporting(chat_log.get_users_data())
-    #
-    # word_count(chat_log)
+    word_reporting(chat_log.get_users_data())
+
+    word_count(chat_log)
     #
     # chat_log.export_word_cloud()
     #
