@@ -174,20 +174,20 @@ if __name__ == "__main__":
     #     print("Most similar of {} is {}: in common: {}, different: {}, distance: {}"\
     #         .format(user, most_similar, data[1], data[2], data[0]))
 
-    # trending_topics = chat_log.get_trending_topics()
-    #
-    # for t in trending_topics:
-    #     print("\nWeek {}".format(t[0]))
-    #     print([k for k in t[1]])
+    trending_topics = chat_log.get_trending_topics()
+
+    for t in trending_topics:
+        print("\nWeek {}".format(t[0]))
+        print([k for k in t[1]])
 
     # print_dict("After 3 hour:", chat_log.get_ice_breakers(3))
 
-    word_reporting(chat_log.get_users_data())
-
-    word_count(chat_log)
+    # word_reporting(chat_log.get_users_data())
+    #
+    # word_count(chat_log)
     #
     # chat_log.export_word_cloud()
-    #
+
     # graph_export(chat_log)
     # chat_log.get_messages_by_hour_histogram(args.file + "_hour_histogram.png")
     # chat_log.get_messages_by_day_of_the_week_histogram(args.file + "_days_histogram.png")

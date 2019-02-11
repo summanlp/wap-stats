@@ -2,6 +2,7 @@
 import wordcloud
 import matplotlib.pyplot as plt
 from abc import ABCMeta, abstractmethod
+from functools import cmp_to_key
 from operator import add
 from text_cleanner import clean_text
 from graph import Graph
@@ -15,6 +16,10 @@ USER_WORDCLOUD_WIDTH = 500
 USER_WORDCLOUD_HEIGHT = 500
 
 
+def cmp(a, b):
+    return (a > b) - (a < b)
+
+
 class Log:
     __metaclass__ = ABCMeta
 
@@ -25,7 +30,7 @@ class Log:
     def export_word_cloud(self, width, height):
         log_as_string = clean_text(self.to_string(), LANGUAGE)
         wc = wordcloud.WordCloud(width=width, height=height).generate(log_as_string)
-        wc.to_file(self.name + ".png")
+        wc.to_file("word_cloud.png")
 
     @abstractmethod
     def to_string(self):
@@ -83,7 +88,7 @@ class Log:
     def get_messages_by_day_of_the_week_histogram(self, figure_filename="day_histogram.png"):
         messages_by_days = self.get_messages_by_day_of_the_week()
 
-        sorted_by_day = sorted(messages_by_days.iteritems(), cmp=lambda a, b: cmp(a[0][0], b[0][0]))
+        sorted_by_day = sorted(messages_by_days.items(), key=cmp_to_key(lambda a, b: cmp(a[0][0], b[0][0])))
         labels = [item[0][1] for item in sorted_by_day]
         values = [item[1] for item in sorted_by_day]
 
@@ -183,7 +188,7 @@ class ChatLog(Log):
     def get_trending_topics(self):
         messages_by_week = self.get_messages().map(process_trending_topic_tuple) \
             .reduceByKey(add).collectAsMap()
-        ordered = sorted(messages_by_week.iteritems())
+        ordered = sorted(messages_by_week.items())
         all_weeks_freqs = [get_freq_dict(words) for _, words in ordered]
 
         history_length = 2
@@ -191,7 +196,7 @@ class ChatLog(Log):
 
         results = []
 
-        for i in xrange(history_length, len(all_weeks_freqs)):
+        for i in range(history_length, len(all_weeks_freqs)):
             history = build_history_of_freqs(all_weeks_freqs, i - history_length, history_length)
             current_week = all_weeks_freqs[i]
 
@@ -216,14 +221,14 @@ def chi_squared_test(expected, observed, threshold=0):
 
         result[word] = chi_squared_value
 
-    sorted_result = sorted(result.iteritems(), cmp=lambda x, y: cmp(y[1], x[1]))[0:3]
+    sorted_result = sorted(result.items(), key=cmp_to_key(lambda x, y: cmp(y[1], x[1])))[0:3]
 
     return {k: v for k, v in sorted_result}
 
 
 def build_history_of_freqs(freqs, index, offset):
     result = freqs[index].copy()
-    for i in xrange(index + 1, index + offset):
+    for i in range(index + 1, index + offset):
         current = freqs[i]
         for word in current:
             if word in result:
